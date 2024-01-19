@@ -61,7 +61,7 @@ function addEssential() {
       <ul>
         <li v-for="essential in essentialsList" :key="essential.id">
           <div style="font-size: 14px;">
-            <input type="checkbox" />
+      
             {{ essential.title }}
           </div>
         </li>

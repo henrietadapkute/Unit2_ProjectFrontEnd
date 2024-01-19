@@ -70,8 +70,8 @@ function updateJourney() {
 </script>
 
 <template>
-  <div class="d-flex flex-row gap-5 align-items-center justify-content-center">
-    <div class="mb-3">
+  <div class="d-flex flex-row gap-5 align-items-center justify-content-center ">
+    <div class="mb-3 text-center">
       <h1> Journey to {{ journey.CountryName }}</h1>
       <br>
         <div class="card m-3 custom-border">
