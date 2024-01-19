@@ -1,15 +1,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { RouterLink } from 'vue-router';
 import { useCookies } from 'vue3-cookies';
 import { decodeCredential} from 'vue3-google-login';
 import NewJourney from '@/components/NewJourney.vue';
 
-
 const { cookies } = useCookies()
-const journeyBe = ref([])
 const isLoggedin = ref(false)
 let userName = ''
+
+const journeyBe = ref([])
+
 
 onMounted(() => {
     fetch(`${import.meta.env.VITE_API_URL}/journey`)
@@ -20,12 +20,25 @@ onMounted(() => {
     })
 })
 
+const checkSession = () => {
+    if ( cookies.isKey('user_session') ) {
+        isLoggedin.value = true
+        const userData = decodeCredential(cookies.get('user_session'))
+        userName = userData.given_name
+    }
+}
+
+onMounted(() => {
+    checkSession()
+})
 
 </script>
 
-<template>
-    <h1>Journey List</h1>
-
-         <NewJourney />
-
+<template> 
+<main class="text-center">
+     <div v-if="isLoggedin">
+        <h2>Hello {{ userName }}</h2>
+        <NewJourney />
+    </div>
+</main>
 </template>

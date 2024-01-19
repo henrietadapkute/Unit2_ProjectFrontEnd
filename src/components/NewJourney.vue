@@ -118,65 +118,68 @@ function addJourney() {
 // }
 </script>
 
-      <template>
-    <h3>Add a new journey</h3>
-    <div class="form-container">
-    <form class="row g-3" @submit.prevent="addJourney">
+<template>
+  <div class="container py-5">
+    <h3 class="mb-4">Add a new journey</h3>
+    <div class="card p-4 shadow-sm">
+      <form class="row g-3" @submit.prevent="addJourney">
+        
         <div class="col-md-6">
-        <label for="countryName" class="form-label">Country Name: *</label>
-        <input type="text" name="countryName" placeholder="Country Name" class="form-control" v-model="journeyDetails.journey.CountryName" required>
-    </div>
+          <label for="countryName" class="form-label">Country Name: *</label>
+          <input type="text" class="form-control" id="countryName" placeholder="Country Name" v-model="journeyDetails.journey.CountryName" required>
+        </div>
         <div class="col-md-6">
-        <label for="date" class="form-label">Date: *</label>
-        <input type="date" name="date" placeholder="Date" class="form-control" v-model="journeyDetails.journey.date" required>
-    </div>
-        <!-- Flight Details -->
+          <label for="date" class="form-label">Date: *</label>
+          <input type="date" class="form-control" id="date" v-model="journeyDetails.journey.date" required>
+        </div>
+
         <div class="col-12">
-        <label for="airline" class="form-label">Airline: *</label>
-        <input type="text" name="airline" placeholder="Airline" class="form-control" v-model="journeyDetails.flight.airline" required>
-    </div>
+          <label for="airline" class="form-label">Airline: *</label>
+          <input type="text" class="form-control" id="airline" placeholder="Airline" v-model="journeyDetails.flight.airline" required>
+        </div>
         <div class="col-md-6">
-        <label for="departureFrom" class="form-label">Departure From: *</label>
-        <input type="text" name="departureFrom" placeholder="Departure From" class="form-control" v-model="journeyDetails.flight.departureFrom" required>
-    </div>
-        <div class="col-md-4">
-        <label for="departureTime" class="form-label">Departure Time: *</label>
-        <input type="time" name="departureTime" placeholder="Departure Time" class="form-control" v-model="journeyDetails.flight.departureTime" required>
-    </div>
+          <label for="departureFrom" class="form-label">Departure From: *</label>
+          <input type="text" class="form-control" id="departureFrom" placeholder="Departure From" v-model="journeyDetails.flight.departureFrom" required>
+        </div>
         <div class="col-md-6">
-        <label for="arrivalTo" class="form-label">Arrival To: *</label>
-        <input type="text" name="arrivalTo" placeholder="Arrival To" class="form-control" v-model="journeyDetails.flight.arrivalTo" required>
-    </div>
-        <div class="col-md-4">
-        <label for="arrivalTime" class="form-label">Arrival Time: *</label>
-        <input type="time" name="arrivalTime" placeholder="Arrival Time" class="form-control" v-model="journeyDetails.flight.arrivalTime" required>
-    </div>
-        <div class="col-12">
-        <!-- Hotel Details -->
-        <label for="name" class="form-label">Hotel Name: *</label>
-        <input type="text" name="name" placeholder="Hotel Name" class="form-control" v-model="journeyDetails.hotel.name" required>
-    </div>
-        <div class="col-12">
-        <label for="link" class="form-label">Hotel Link: *</label>
-        <input type="text" name="link" placeholder="Hotel Link" class="form-control" v-model="journeyDetails.hotel.link" required>
-    </div>
-        <div class="col-12">
-        <label for="address" class="form-label">Hotel Address: *</label>
-        <input type="text" name="address" placeholder="Hotel Address" class="form-control" v-model="journeyDetails.hotel.address" required>
-    </div>
+          <label for="departureTime" class="form-label">Departure Time: *</label>
+          <input type="time" class="form-control" id="departureTime" v-model="journeyDetails.flight.departureTime" required>
+        </div>
         <div class="col-md-6">
-        <label for="durationofStay" class="form-label">Duration of Stay: *</label>
-        <input type="number" name="durationofStay" placeholder="Duration of Stay" class="form-control" v-model="journeyDetails.hotel.durationofStay" required>
-    </div>
+          <label for="arrivalTo" class="form-label">Arrival To: *</label>
+          <input type="text" class="form-control" id="arrivalTo" placeholder="Arrival To" v-model="journeyDetails.flight.arrivalTo" required>
+        </div>
+        <div class="col-md-6">
+          <label for="arrivalTime" class="form-label">Arrival Time: *</label>
+          <input type="time" class="form-control" id="arrivalTime" v-model="journeyDetails.flight.arrivalTime" required>
+        </div>
+
         <div class="col-12">
-        <label for="roomtype" class="form-label">Room Type: *</label>
-        <input type="text" name="roomtype" placeholder="Room Type" class="form-control" v-model="journeyDetails.hotel.roomtype" required>
-    </div>
+          <label for="hotelName" class="form-label">Hotel Name: *</label>
+          <input type="text" class="form-control" id="hotelName" placeholder="Hotel Name" v-model="journeyDetails.hotel.name" required>
+        </div>
         <div class="col-12">
-        <button type="submit" class="btn btn-primary">Add Journey</button>
+          <label for="hotelLink" class="form-label">Hotel Link: *</label>
+          <input type="text" class="form-control" id="hotelLink" placeholder="Hotel Link" v-model="journeyDetails.hotel.link" required>
+        </div>
+        <div class="col-md-6">
+          <label for="hotelAddress" class="form-label">Hotel Address: *</label>
+          <input type="text" class="form-control" id="hotelAddress" placeholder="Hotel Address" v-model="journeyDetails.hotel.address" required>
+        </div>
+        <div class="col-md-6">
+          <label for="durationofStay" class="form-label">Duration of Stay: *</label>
+          <input type="number" class="form-control" id="durationofStay" placeholder="Duration of Stay" v-model="journeyDetails.hotel.durationofStay" required>
+        </div>
+        <div class="col-md-6">
+          <label for="roomType" class="form-label">Room Type: *</label>
+          <input type="text" class="form-control" id="roomType" placeholder="Room Type" v-model="journeyDetails.hotel.roomtype" required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Add Journey</button>
+        </div>
+      </form>
     </div>
-    </form>
-    </div>
+  </div>
 </template>
 
 <style>

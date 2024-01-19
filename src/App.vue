@@ -4,12 +4,13 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/journey/add">Add New Journey</RouterLink>
-        <RouterLink to="/journeylist">Visited Countires</RouterLink>
-      </nav>
+    <div class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Journey Planner</a>
+        <RouterLink to="/" class="nav-link">Home</RouterLink>
+        <RouterLink to="/journey/add" class="nav-link">Add New Journey</RouterLink>
+        <RouterLink to="/journeylist" class="nav-link">Journey List</RouterLink>
+    </div>
     </div>
   </header>
 
@@ -36,6 +37,9 @@ nav {
   margin-top: 2rem;
 }
 
+.nav-link {
+  width: 100%
+}
 nav a.router-link-exact-active {
   color: var(--color-text);
 }

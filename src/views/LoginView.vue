@@ -49,12 +49,25 @@ onMounted(checkSession)
 </script>
 
 <template>
-    <h1>Login</h1>
+    <div class="login-container">
     <div v-if="isLoggedin">
-        <h2>Hello {{ userName }}</h2>
-        <button @click="handleLogout">Log Out</button>
+    <h3>Hello, {{ userName }}</h3> 
+    <button @click="handleLogout" type="button" class="btn btn-outline-success">Log Out</button>
     </div>
     <div v-else>
         <GoogleLogin :callback="callback" />
     </div>
+</div>
 </template>
+
+<style>
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  min-height: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+
+</style>

@@ -4,7 +4,7 @@ import { ref, onMounted } from 'vue';
 const essentialsList = ref({});
 
 const newEssential = ref({
-  title: ''
+  title: '',
 });
 
 onMounted(() => {
@@ -19,8 +19,8 @@ onMounted(() => {
 function addEssential() {
   if (newEssential.value.title === '') {
     alert('Title is required');
-    return;
-  }
+    
+  } else {
        fetch(`${import.meta.env.VITE_API_URL}/essentials/new`, {
         method: "POST",
         headers: {
@@ -30,10 +30,11 @@ function addEssential() {
        })
        .then(res => {
         newEssential.value.title = '',
-        console.log(res)
+        console.log('Hello', res)
        })
        .catch(err => console.error(err))
     }
+  }
 
 // function updateEssential() {
 //   fetch((`${import.meta.env.VITE_API_URL}/essentials/${selectedEssentialId.value}`), {

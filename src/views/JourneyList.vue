@@ -52,28 +52,39 @@ function deleteJourney(journeyId) {
 </script>
 
 <template>
-    <!-- <ul>
-        <li v-for="journey in journeyBe" :key="journey.id">
-            <RouterLink :to="'/journey' + '/' + journey._id">{{ journey.CountryName }}</RouterLink> &nbsp;  -->
-            <!-- <button @click="deleteJourney(journey._id)">Delete Journey</button> -->
-            <!-- <RouterLink :to="'/book/update/' + book._id">Edit Book</RouterLink> -->
-        <!-- </li>
-    </ul> -->
-    <!-- <div v-if="isLoggedin"> -->
-         
-    <!-- </div> -->
     <div v-if="isLoggedin">
     <div class="JourneyList">
     <div class="container">
-        <h1>My Journeys</h1>
-        <ul class="list-group mt-3" style="display: grid; grid-template-columns: repeat(4, 300px); gap: 10px;">
-            <li v-for="journey in journeyBe" :key="journey._id" class="list-group-item" style="display: flex; flex-direction: column; gap: 10px;">
-                <RouterLink :to="'/journey' + '/' + journey._id">{{ journey.CountryName }} <br> {{ journey.date }} </RouterLink>
-                <RouterLink :to="'/journey' + '/' + journey._id" class="btn btn-primary">Edit</RouterLink>
-                <button @click="deleteJourney(journey._id)" class="btn btn-danger">Delete Journey</button>
-            </li>
-        </ul>
+      <h1>My Journeys</h1>
+
+      <div class="row mt-3">
+   
+        <div class="col-md-3 mb-3">
+          <div class="card">
+            <img src="https://i.imgur.com/SCuBFBp.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Add your next Adventure!</h5>
+              <p class="card-text" style="font-size:14px">Here you can organise your next trip! Add details such as Hotel information, your flight details, check the weather add your essentials to the list accordingly! <br></p>
+              <a href="/journey/add" class="btn btn-primary">Add a new Journey</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 mb-3" v-for="journey in journeyBe" :key="journey._id">
+          <div class="card">
+            <img src="https://i.imgur.com/orOTb1s.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ journey.CountryName }}</h5>
+              <p class="card-text">{{ journey.date }}</p>
+              <p class="card-text" style="font-size:14px"> View your yourney details.. Add your essentials.. </p>
+              <RouterLink :to="'/journey/' + journey._id" class="btn btn-primary">Edit</RouterLink>
+              <button @click="deleteJourney(journey._id)" class="btn btn-danger">Delete Journey</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
-</div>
+  </div>
 </template>
